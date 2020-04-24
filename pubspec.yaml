@@ -14,7 +14,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -29,6 +29,12 @@ dependencies:
   path_provider: ^1.6.5
   font_awesome_flutter: ^8.8.1
   fluttericon: ^1.0.3
+  carousel_slider: ^2.0.0
+  moor: ^2.4.2
+  moor_ffi: ^0.4.0
+  get_it: ^4.0.1
+  enum_to_string: ^1.0.9
+
   # hive: ^1.4.1+1
   # hive_flutter: ^0.3.0+2
 
@@ -39,9 +45,9 @@ dev_dependencies:
     sdk: flutter
   # hive_generator: ^0.7.0+2
   build_runner: ^1.8.1
+  moor_generator: ^2.4.0
 
 # The following section is specific to Flutter.
 flutter:
   uses-material-design: true
-
   

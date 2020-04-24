@@ -1,0 +1,7 @@
+// **************************************************************************
+// DaoGenerator
+// **************************************************************************
+
+mixin _$TVShowsDaoMixin on DatabaseAccessor<DatabaseService> {
+  $TVimgRecordsTable get tVimgRecords => db.tVimgRecords;
+}

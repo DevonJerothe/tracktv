@@ -14,6 +14,12 @@
       "languageVersion": "2.6"
     },
     {
+      "name": "analyzer_plugin_fork",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/analyzer_plugin_fork-0.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "archive",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/archive-2.0.13",
       "packageUri": "lib/",
@@ -92,6 +98,12 @@
       "languageVersion": "2.3"
     },
     {
+      "name": "carousel_slider",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/carousel_slider-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
+    },
+    {
       "name": "charcode",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/charcode-1.1.3",
       "packageUri": "lib/",
@@ -102,6 +114,12 @@
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/checked_yaml-1.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.3"
+    },
+    {
+      "name": "cli_util",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/cli_util-0.1.3+2",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
     },
     {
       "name": "code_builder",
@@ -146,10 +164,22 @@
       "languageVersion": "2.7"
     },
     {
+      "name": "enum_to_string",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/enum_to_string-1.0.9",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
       "name": "equatable",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/equatable-1.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.0"
+    },
+    {
+      "name": "ffi",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/ffi-0.1.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
     },
     {
       "name": "fixnum",
@@ -190,6 +220,12 @@
     {
       "name": "font_awesome_flutter",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/font_awesome_flutter-8.8.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "get_it",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/get_it-4.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -276,6 +312,24 @@
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/mime-0.9.6+3",
       "packageUri": "lib/",
       "languageVersion": "2.0"
+    },
+    {
+      "name": "moor",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/moor-2.4.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
+    },
+    {
+      "name": "moor_ffi",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/moor_ffi-0.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
+    },
+    {
+      "name": "moor_generator",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/moor_generator-2.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
     },
     {
       "name": "nested",
@@ -386,6 +440,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "recase",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/recase-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
+    },
+    {
       "name": "rxdart",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.23.1",
       "packageUri": "lib/",
@@ -434,8 +494,20 @@
       "languageVersion": "1.11"
     },
     {
+      "name": "source_gen",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/source_gen-0.9.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.5"
+    },
+    {
       "name": "source_span",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
+    },
+    {
+      "name": "sqlparser",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/sqlparser-0.7.0",
       "packageUri": "lib/",
       "languageVersion": "2.6"
     },
@@ -462,6 +534,12 @@
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/string_scanner-1.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.0"
+    },
+    {
+      "name": "synchronized",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/synchronized-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.6"
     },
     {
       "name": "term_glyph",
@@ -551,10 +629,10 @@
       "name": "tracktv",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.2"
     }
   ],
-  "generated": "2020-04-19T20:07:40.919009Z",
+  "generated": "2020-04-24T03:48:13.207480Z",
   "generator": "pub",
   "generatorVersion": "2.8.0-dev.18.0.flutter-eea9717938"
 }

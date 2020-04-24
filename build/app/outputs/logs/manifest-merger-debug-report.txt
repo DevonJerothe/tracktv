@@ -5,6 +5,7 @@ INJECTED from Z:\Mobile dev\flutter projects\tracktv\android\app\src\main\Androi
 INJECTED from Z:\Mobile dev\flutter projects\tracktv\android\app\src\main\AndroidManifest.xml:1:1-38:12
 INJECTED from Z:\Mobile dev\flutter projects\tracktv\android\app\src\main\AndroidManifest.xml:1:1-38:12
 MERGED from Z:\Mobile dev\flutter projects\tracktv\android\app\src\main\AndroidManifest.xml:1:1-38:12
+MERGED from [:moor_ffi] Z:\Mobile dev\flutter projects\tracktv\build\moor_ffi\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:path_provider] Z:\Mobile dev\flutter projects\tracktv\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:path_provider_macos] Z:\Mobile dev\flutter projects\tracktv\build\path_provider_macos\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher] Z:\Mobile dev\flutter projects\tracktv\build\url_launcher\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-14:12
@@ -27,6 +28,7 @@ MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Devon\.g
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\Devon\.gradle\caches\transforms-2\files-2.1\077300052aa327ee6fc9bbb0ce309b24\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Devon\.gradle\caches\transforms-2\files-2.1\3a7eb299570065a3866b140e1a95969b\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Devon\.gradle\caches\transforms-2\files-2.1\b80fad55c42c418cc210e235056767fb\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [eu.simonbinder:sqlite3-native-library:3.30.1] C:\Users\Devon\.gradle\caches\transforms-2\files-2.1\5369e7fa3588671562cdb5b0bd2884bd\sqlite3-native-library-3.30.1\AndroidManifest.xml:2:1-11:12
 INJECTED from Z:\Mobile dev\flutter projects\tracktv\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 INJECTED from Z:\Mobile dev\flutter projects\tracktv\android\app\src\debug\AndroidManifest.xml:1:1-7:12
 INJECTED from Z:\Mobile dev\flutter projects\tracktv\android\app\src\debug\AndroidManifest.xml:1:1-7:12
@@ -114,6 +116,8 @@ uses-sdk
 INJECTED from Z:\Mobile dev\flutter projects\tracktv\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from Z:\Mobile dev\flutter projects\tracktv\android\app\src\main\AndroidManifest.xml
 INJECTED from Z:\Mobile dev\flutter projects\tracktv\android\app\src\main\AndroidManifest.xml
+MERGED from [:moor_ffi] Z:\Mobile dev\flutter projects\tracktv\build\moor_ffi\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-44
+MERGED from [:moor_ffi] Z:\Mobile dev\flutter projects\tracktv\build\moor_ffi\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-44
 MERGED from [:path_provider] Z:\Mobile dev\flutter projects\tracktv\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider] Z:\Mobile dev\flutter projects\tracktv\build\path_provider\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:path_provider_macos] Z:\Mobile dev\flutter projects\tracktv\build\path_provider_macos\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
@@ -158,6 +162,8 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\De
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Devon\.gradle\caches\transforms-2\files-2.1\3a7eb299570065a3866b140e1a95969b\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Devon\.gradle\caches\transforms-2\files-2.1\b80fad55c42c418cc210e235056767fb\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Devon\.gradle\caches\transforms-2\files-2.1\b80fad55c42c418cc210e235056767fb\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [eu.simonbinder:sqlite3-native-library:3.30.1] C:\Users\Devon\.gradle\caches\transforms-2\files-2.1\5369e7fa3588671562cdb5b0bd2884bd\sqlite3-native-library-3.30.1\AndroidManifest.xml:7:5-9:41
+MERGED from [eu.simonbinder:sqlite3-native-library:3.30.1] C:\Users\Devon\.gradle\caches\transforms-2\files-2.1\5369e7fa3588671562cdb5b0bd2884bd\sqlite3-native-library-3.30.1\AndroidManifest.xml:7:5-9:41
 INJECTED from Z:\Mobile dev\flutter projects\tracktv\android\app\src\debug\AndroidManifest.xml
 INJECTED from Z:\Mobile dev\flutter projects\tracktv\android\app\src\debug\AndroidManifest.xml
 	android:targetSdkVersion

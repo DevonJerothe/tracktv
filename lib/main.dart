@@ -4,20 +4,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get_it/get_it.dart';
 import 'package:tracktv/data/bloc/client/client_bloc.dart';
-import 'package:tracktv/home.dart';
+import 'package:tracktv/data/bloc/shows/shows_bloc.dart';
 import 'package:uni_links/uni_links.dart';
 
+import 'data/db/database.dart';
 import 'ui/account.dart';
+import 'ui/home.dart';
 
-void main() => runApp(MyApp());
+GetIt getIt = GetIt.instance; 
+
+void main() {
+  getIt.registerSingleton<DatabaseService>(constructDb());
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider<ClientBloc>(create: (_) => ClientBloc())],
+      providers: [
+        BlocProvider<ClientBloc>(create: (_) => ClientBloc()),
+        BlocProvider<ShowsBloc>(create: (_) => ShowsBloc())
+      ],
       child: MaterialApp(
         title: 'MyUsher',
         theme: ThemeData.dark(),
@@ -79,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
               items: [
                 BottomNavigationBarItem(
                     icon: FaIcon(FontAwesomeIcons.film),
-                    title: Text("My Cinema")),
+                    title: Text("Discover")),
                 BottomNavigationBarItem(
                     icon: FaIcon(FontAwesomeIcons.userAlt),
                     title: Text("Account")),

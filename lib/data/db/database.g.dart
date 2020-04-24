@@ -1,0 +1,337 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'database.dart';
+
+// **************************************************************************
+// MoorGenerator
+// **************************************************************************
+
+// ignore_for_file: unnecessary_brace_in_string_interps, unnecessary_this
+class TVimg extends DataClass implements Insertable<TVimg> {
+  final String tvDB;
+  final String type;
+  final String id;
+  final String url;
+  final String lang;
+  final int likes;
+  TVimg(
+      {@required this.tvDB,
+      @required this.type,
+      @required this.id,
+      this.url,
+      this.lang,
+      this.likes});
+  factory TVimg.fromData(Map<String, dynamic> data, GeneratedDatabase db,
+      {String prefix}) {
+    final effectivePrefix = prefix ?? '';
+    final stringType = db.typeSystem.forDartType<String>();
+    final intType = db.typeSystem.forDartType<int>();
+    return TVimg(
+      tvDB:
+          stringType.mapFromDatabaseResponse(data['${effectivePrefix}tv_d_b']),
+      type: stringType.mapFromDatabaseResponse(data['${effectivePrefix}type']),
+      id: stringType.mapFromDatabaseResponse(data['${effectivePrefix}id']),
+      url: stringType.mapFromDatabaseResponse(data['${effectivePrefix}url']),
+      lang: stringType.mapFromDatabaseResponse(data['${effectivePrefix}lang']),
+      likes: intType.mapFromDatabaseResponse(data['${effectivePrefix}likes']),
+    );
+  }
+  factory TVimg.fromJson(Map<String, dynamic> json,
+      {ValueSerializer serializer}) {
+    serializer ??= moorRuntimeOptions.defaultSerializer;
+    return TVimg(
+      tvDB: serializer.fromJson<String>(json['tvDB']),
+      type: serializer.fromJson<String>(json['type']),
+      id: serializer.fromJson<String>(json['id']),
+      url: serializer.fromJson<String>(json['url']),
+      lang: serializer.fromJson<String>(json['lang']),
+      likes: serializer.fromJson<int>(json['likes']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer serializer}) {
+    serializer ??= moorRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'tvDB': serializer.toJson<String>(tvDB),
+      'type': serializer.toJson<String>(type),
+      'id': serializer.toJson<String>(id),
+      'url': serializer.toJson<String>(url),
+      'lang': serializer.toJson<String>(lang),
+      'likes': serializer.toJson<int>(likes),
+    };
+  }
+
+  @override
+  TVimgRecordsCompanion createCompanion(bool nullToAbsent) {
+    return TVimgRecordsCompanion(
+      tvDB: tvDB == null && nullToAbsent ? const Value.absent() : Value(tvDB),
+      type: type == null && nullToAbsent ? const Value.absent() : Value(type),
+      id: id == null && nullToAbsent ? const Value.absent() : Value(id),
+      url: url == null && nullToAbsent ? const Value.absent() : Value(url),
+      lang: lang == null && nullToAbsent ? const Value.absent() : Value(lang),
+      likes:
+          likes == null && nullToAbsent ? const Value.absent() : Value(likes),
+    );
+  }
+
+  TVimg copyWith(
+          {String tvDB,
+          String type,
+          String id,
+          String url,
+          String lang,
+          int likes}) =>
+      TVimg(
+        tvDB: tvDB ?? this.tvDB,
+        type: type ?? this.type,
+        id: id ?? this.id,
+        url: url ?? this.url,
+        lang: lang ?? this.lang,
+        likes: likes ?? this.likes,
+      );
+  @override
+  String toString() {
+    return (StringBuffer('TVimg(')
+          ..write('tvDB: $tvDB, ')
+          ..write('type: $type, ')
+          ..write('id: $id, ')
+          ..write('url: $url, ')
+          ..write('lang: $lang, ')
+          ..write('likes: $likes')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => $mrjf($mrjc(
+      tvDB.hashCode,
+      $mrjc(
+          type.hashCode,
+          $mrjc(id.hashCode,
+              $mrjc(url.hashCode, $mrjc(lang.hashCode, likes.hashCode))))));
+  @override
+  bool operator ==(dynamic other) =>
+      identical(this, other) ||
+      (other is TVimg &&
+          other.tvDB == this.tvDB &&
+          other.type == this.type &&
+          other.id == this.id &&
+          other.url == this.url &&
+          other.lang == this.lang &&
+          other.likes == this.likes);
+}
+
+class TVimgRecordsCompanion extends UpdateCompanion<TVimg> {
+  final Value<String> tvDB;
+  final Value<String> type;
+  final Value<String> id;
+  final Value<String> url;
+  final Value<String> lang;
+  final Value<int> likes;
+  const TVimgRecordsCompanion({
+    this.tvDB = const Value.absent(),
+    this.type = const Value.absent(),
+    this.id = const Value.absent(),
+    this.url = const Value.absent(),
+    this.lang = const Value.absent(),
+    this.likes = const Value.absent(),
+  });
+  TVimgRecordsCompanion.insert({
+    @required String tvDB,
+    @required String type,
+    @required String id,
+    this.url = const Value.absent(),
+    this.lang = const Value.absent(),
+    this.likes = const Value.absent(),
+  })  : tvDB = Value(tvDB),
+        type = Value(type),
+        id = Value(id);
+  TVimgRecordsCompanion copyWith(
+      {Value<String> tvDB,
+      Value<String> type,
+      Value<String> id,
+      Value<String> url,
+      Value<String> lang,
+      Value<int> likes}) {
+    return TVimgRecordsCompanion(
+      tvDB: tvDB ?? this.tvDB,
+      type: type ?? this.type,
+      id: id ?? this.id,
+      url: url ?? this.url,
+      lang: lang ?? this.lang,
+      likes: likes ?? this.likes,
+    );
+  }
+}
+
+class $TVimgRecordsTable extends TVimgRecords
+    with TableInfo<$TVimgRecordsTable, TVimg> {
+  final GeneratedDatabase _db;
+  final String _alias;
+  $TVimgRecordsTable(this._db, [this._alias]);
+  final VerificationMeta _tvDBMeta = const VerificationMeta('tvDB');
+  GeneratedTextColumn _tvDB;
+  @override
+  GeneratedTextColumn get tvDB => _tvDB ??= _constructTvDB();
+  GeneratedTextColumn _constructTvDB() {
+    return GeneratedTextColumn(
+      'tv_d_b',
+      $tableName,
+      false,
+    );
+  }
+
+  final VerificationMeta _typeMeta = const VerificationMeta('type');
+  GeneratedTextColumn _type;
+  @override
+  GeneratedTextColumn get type => _type ??= _constructType();
+  GeneratedTextColumn _constructType() {
+    return GeneratedTextColumn(
+      'type',
+      $tableName,
+      false,
+    );
+  }
+
+  final VerificationMeta _idMeta = const VerificationMeta('id');
+  GeneratedTextColumn _id;
+  @override
+  GeneratedTextColumn get id => _id ??= _constructId();
+  GeneratedTextColumn _constructId() {
+    return GeneratedTextColumn(
+      'id',
+      $tableName,
+      false,
+    );
+  }
+
+  final VerificationMeta _urlMeta = const VerificationMeta('url');
+  GeneratedTextColumn _url;
+  @override
+  GeneratedTextColumn get url => _url ??= _constructUrl();
+  GeneratedTextColumn _constructUrl() {
+    return GeneratedTextColumn(
+      'url',
+      $tableName,
+      true,
+    );
+  }
+
+  final VerificationMeta _langMeta = const VerificationMeta('lang');
+  GeneratedTextColumn _lang;
+  @override
+  GeneratedTextColumn get lang => _lang ??= _constructLang();
+  GeneratedTextColumn _constructLang() {
+    return GeneratedTextColumn(
+      'lang',
+      $tableName,
+      true,
+    );
+  }
+
+  final VerificationMeta _likesMeta = const VerificationMeta('likes');
+  GeneratedIntColumn _likes;
+  @override
+  GeneratedIntColumn get likes => _likes ??= _constructLikes();
+  GeneratedIntColumn _constructLikes() {
+    return GeneratedIntColumn(
+      'likes',
+      $tableName,
+      true,
+    );
+  }
+
+  @override
+  List<GeneratedColumn> get $columns => [tvDB, type, id, url, lang, likes];
+  @override
+  $TVimgRecordsTable get asDslTable => this;
+  @override
+  String get $tableName => _alias ?? 'TVimg';
+  @override
+  final String actualTableName = 'TVimg';
+  @override
+  VerificationContext validateIntegrity(TVimgRecordsCompanion d,
+      {bool isInserting = false}) {
+    final context = VerificationContext();
+    if (d.tvDB.present) {
+      context.handle(
+          _tvDBMeta, tvDB.isAcceptableValue(d.tvDB.value, _tvDBMeta));
+    } else if (isInserting) {
+      context.missing(_tvDBMeta);
+    }
+    if (d.type.present) {
+      context.handle(
+          _typeMeta, type.isAcceptableValue(d.type.value, _typeMeta));
+    } else if (isInserting) {
+      context.missing(_typeMeta);
+    }
+    if (d.id.present) {
+      context.handle(_idMeta, id.isAcceptableValue(d.id.value, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (d.url.present) {
+      context.handle(_urlMeta, url.isAcceptableValue(d.url.value, _urlMeta));
+    }
+    if (d.lang.present) {
+      context.handle(
+          _langMeta, lang.isAcceptableValue(d.lang.value, _langMeta));
+    }
+    if (d.likes.present) {
+      context.handle(
+          _likesMeta, likes.isAcceptableValue(d.likes.value, _likesMeta));
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  TVimg map(Map<String, dynamic> data, {String tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : null;
+    return TVimg.fromData(data, _db, prefix: effectivePrefix);
+  }
+
+  @override
+  Map<String, Variable> entityToSql(TVimgRecordsCompanion d) {
+    final map = <String, Variable>{};
+    if (d.tvDB.present) {
+      map['tv_d_b'] = Variable<String, StringType>(d.tvDB.value);
+    }
+    if (d.type.present) {
+      map['type'] = Variable<String, StringType>(d.type.value);
+    }
+    if (d.id.present) {
+      map['id'] = Variable<String, StringType>(d.id.value);
+    }
+    if (d.url.present) {
+      map['url'] = Variable<String, StringType>(d.url.value);
+    }
+    if (d.lang.present) {
+      map['lang'] = Variable<String, StringType>(d.lang.value);
+    }
+    if (d.likes.present) {
+      map['likes'] = Variable<int, IntType>(d.likes.value);
+    }
+    return map;
+  }
+
+  @override
+  $TVimgRecordsTable createAlias(String alias) {
+    return $TVimgRecordsTable(_db, alias);
+  }
+}
+
+abstract class _$DatabaseService extends GeneratedDatabase {
+  _$DatabaseService(QueryExecutor e) : super(SqlTypeSystem.defaultInstance, e);
+  $TVimgRecordsTable _tVimgRecords;
+  $TVimgRecordsTable get tVimgRecords =>
+      _tVimgRecords ??= $TVimgRecordsTable(this);
+  TVShowsDao _tVShowsDao;
+  TVShowsDao get tVShowsDao =>
+      _tVShowsDao ??= TVShowsDao(this as DatabaseService);
+  @override
+  Iterable<TableInfo> get allTables => allSchemaEntities.whereType<TableInfo>();
+  @override
+  List<DatabaseSchemaEntity> get allSchemaEntities => [tVimgRecords];
+}
