@@ -19,8 +19,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int currentIndex = 0;
 
-  final tabs = [Tv(), Movies()];
-
   final trakt = new TraktAPI();
 
   @override
@@ -96,10 +94,9 @@ class _HomeState extends State<Home> {
                           enlargeCenterPage: false,
                           autoPlay: true,
                           autoPlayAnimationDuration: Duration(seconds: 2),
-                          autoPlayInterval: Duration(seconds: 2)
+                          autoPlayInterval: Duration(seconds: 8)
                         )),
-                    // child: SpotLight(
-                    //     shows: shows, client: client, screenSize: screenSize),
+                       
                   ),
                 ),
               )
@@ -111,83 +108,5 @@ class _HomeState extends State<Home> {
   }
 }
 
-class Movies extends StatefulWidget {
-  @override
-  _MoviesState createState() => _MoviesState();
-}
 
-class _MoviesState extends State<Movies> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-          child: Image.network(
-              'https://img.omdbapi.com/?apikey=c3a93533&i=tt0372784')),
-    );
-  }
-}
 
-class Tv extends StatefulWidget {
-  @override
-  _TvState createState() => _TvState();
-}
-
-class _TvState extends State<Tv> {
-  @override
-  void initState() {
-    super.initState();
-    BlocProvider.of<ShowsBloc>(context).add(GetShowList(
-        type: ListCategory.trending,
-        limit: 5,
-        extended: true,
-        context: context));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // return Container(
-    //   child: Column(
-    //     mainAxisAlignment: MainAxisAlignment.start,
-    //     crossAxisAlignment: CrossAxisAlignment.start,
-    //     children: <Widget>[
-    //       Column(
-    //         crossAxisAlignment: CrossAxisAlignment.center,
-    //         children: <Widget>[
-    //           BlocBuilder<ShowsBloc, ShowsState>(
-    //             builder: (context, state) {
-    //               if(state is ShowListLoaded){
-    //                 return Container(
-    //                   margin: EdgeInsets.only(bottom: 8),
-    //                   padding: EdgeInsets.all(14),
-    //                   //height: 200,
-    //                   width: double.infinity,
-    //                   child: CarouselSlider.builder(
-    //                     itemCount: state.shows.length,
-    //                     itemBuilder: (context, index) {
-    //                       //return SpotLight(name: state.shows[index].title,imdb: state.shows[index].ids.imdb, tvdb: state.shows[index].ids.tvdb);
-    //                     },
-    //                     options:
-    //                         CarouselOptions(autoPlay: false, viewportFraction: 0.85),
-    //                   ),
-    //                 );
-    //               }
-    //               return CircularProgressIndicator();
-    //             }
-    //           ),
-    //         ],
-    //       ),
-    //       Divider(),
-    //       Padding(
-    //         padding: const EdgeInsets.only(left: 8.0),
-    //         child: Text(
-    //           'Popular',
-    //           style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-    //         ),
-    //       ),
-    //       Container(),
-    //       Container()
-    //     ],
-    //   ),
-    // );
-  }
-}
