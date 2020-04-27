@@ -8,6 +8,7 @@ part of 'database.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps, unnecessary_this
 class TVimg extends DataClass implements Insertable<TVimg> {
+  final String imdbPoster;
   final String tvDB;
   final String type;
   final String id;
@@ -15,7 +16,8 @@ class TVimg extends DataClass implements Insertable<TVimg> {
   final String lang;
   final int likes;
   TVimg(
-      {@required this.tvDB,
+      {this.imdbPoster,
+      @required this.tvDB,
       @required this.type,
       @required this.id,
       this.url,
@@ -27,6 +29,8 @@ class TVimg extends DataClass implements Insertable<TVimg> {
     final stringType = db.typeSystem.forDartType<String>();
     final intType = db.typeSystem.forDartType<int>();
     return TVimg(
+      imdbPoster: stringType
+          .mapFromDatabaseResponse(data['${effectivePrefix}imdb_poster']),
       tvDB:
           stringType.mapFromDatabaseResponse(data['${effectivePrefix}tv_d_b']),
       type: stringType.mapFromDatabaseResponse(data['${effectivePrefix}type']),
@@ -40,6 +44,7 @@ class TVimg extends DataClass implements Insertable<TVimg> {
       {ValueSerializer serializer}) {
     serializer ??= moorRuntimeOptions.defaultSerializer;
     return TVimg(
+      imdbPoster: serializer.fromJson<String>(json['imdbPoster']),
       tvDB: serializer.fromJson<String>(json['tvDB']),
       type: serializer.fromJson<String>(json['type']),
       id: serializer.fromJson<String>(json['id']),
@@ -52,6 +57,7 @@ class TVimg extends DataClass implements Insertable<TVimg> {
   Map<String, dynamic> toJson({ValueSerializer serializer}) {
     serializer ??= moorRuntimeOptions.defaultSerializer;
     return <String, dynamic>{
+      'imdbPoster': serializer.toJson<String>(imdbPoster),
       'tvDB': serializer.toJson<String>(tvDB),
       'type': serializer.toJson<String>(type),
       'id': serializer.toJson<String>(id),
@@ -64,6 +70,9 @@ class TVimg extends DataClass implements Insertable<TVimg> {
   @override
   TVimgRecordsCompanion createCompanion(bool nullToAbsent) {
     return TVimgRecordsCompanion(
+      imdbPoster: imdbPoster == null && nullToAbsent
+          ? const Value.absent()
+          : Value(imdbPoster),
       tvDB: tvDB == null && nullToAbsent ? const Value.absent() : Value(tvDB),
       type: type == null && nullToAbsent ? const Value.absent() : Value(type),
       id: id == null && nullToAbsent ? const Value.absent() : Value(id),
@@ -75,13 +84,15 @@ class TVimg extends DataClass implements Insertable<TVimg> {
   }
 
   TVimg copyWith(
-          {String tvDB,
+          {String imdbPoster,
+          String tvDB,
           String type,
           String id,
           String url,
           String lang,
           int likes}) =>
       TVimg(
+        imdbPoster: imdbPoster ?? this.imdbPoster,
         tvDB: tvDB ?? this.tvDB,
         type: type ?? this.type,
         id: id ?? this.id,
@@ -92,6 +103,7 @@ class TVimg extends DataClass implements Insertable<TVimg> {
   @override
   String toString() {
     return (StringBuffer('TVimg(')
+          ..write('imdbPoster: $imdbPoster, ')
           ..write('tvDB: $tvDB, ')
           ..write('type: $type, ')
           ..write('id: $id, ')
@@ -104,15 +116,20 @@ class TVimg extends DataClass implements Insertable<TVimg> {
 
   @override
   int get hashCode => $mrjf($mrjc(
-      tvDB.hashCode,
+      imdbPoster.hashCode,
       $mrjc(
-          type.hashCode,
-          $mrjc(id.hashCode,
-              $mrjc(url.hashCode, $mrjc(lang.hashCode, likes.hashCode))))));
+          tvDB.hashCode,
+          $mrjc(
+              type.hashCode,
+              $mrjc(
+                  id.hashCode,
+                  $mrjc(
+                      url.hashCode, $mrjc(lang.hashCode, likes.hashCode)))))));
   @override
   bool operator ==(dynamic other) =>
       identical(this, other) ||
       (other is TVimg &&
+          other.imdbPoster == this.imdbPoster &&
           other.tvDB == this.tvDB &&
           other.type == this.type &&
           other.id == this.id &&
@@ -122,6 +139,7 @@ class TVimg extends DataClass implements Insertable<TVimg> {
 }
 
 class TVimgRecordsCompanion extends UpdateCompanion<TVimg> {
+  final Value<String> imdbPoster;
   final Value<String> tvDB;
   final Value<String> type;
   final Value<String> id;
@@ -129,6 +147,7 @@ class TVimgRecordsCompanion extends UpdateCompanion<TVimg> {
   final Value<String> lang;
   final Value<int> likes;
   const TVimgRecordsCompanion({
+    this.imdbPoster = const Value.absent(),
     this.tvDB = const Value.absent(),
     this.type = const Value.absent(),
     this.id = const Value.absent(),
@@ -137,6 +156,7 @@ class TVimgRecordsCompanion extends UpdateCompanion<TVimg> {
     this.likes = const Value.absent(),
   });
   TVimgRecordsCompanion.insert({
+    this.imdbPoster = const Value.absent(),
     @required String tvDB,
     @required String type,
     @required String id,
@@ -147,13 +167,15 @@ class TVimgRecordsCompanion extends UpdateCompanion<TVimg> {
         type = Value(type),
         id = Value(id);
   TVimgRecordsCompanion copyWith(
-      {Value<String> tvDB,
+      {Value<String> imdbPoster,
+      Value<String> tvDB,
       Value<String> type,
       Value<String> id,
       Value<String> url,
       Value<String> lang,
       Value<int> likes}) {
     return TVimgRecordsCompanion(
+      imdbPoster: imdbPoster ?? this.imdbPoster,
       tvDB: tvDB ?? this.tvDB,
       type: type ?? this.type,
       id: id ?? this.id,
@@ -169,6 +191,18 @@ class $TVimgRecordsTable extends TVimgRecords
   final GeneratedDatabase _db;
   final String _alias;
   $TVimgRecordsTable(this._db, [this._alias]);
+  final VerificationMeta _imdbPosterMeta = const VerificationMeta('imdbPoster');
+  GeneratedTextColumn _imdbPoster;
+  @override
+  GeneratedTextColumn get imdbPoster => _imdbPoster ??= _constructImdbPoster();
+  GeneratedTextColumn _constructImdbPoster() {
+    return GeneratedTextColumn(
+      'imdb_poster',
+      $tableName,
+      true,
+    );
+  }
+
   final VerificationMeta _tvDBMeta = const VerificationMeta('tvDB');
   GeneratedTextColumn _tvDB;
   @override
@@ -242,7 +276,8 @@ class $TVimgRecordsTable extends TVimgRecords
   }
 
   @override
-  List<GeneratedColumn> get $columns => [tvDB, type, id, url, lang, likes];
+  List<GeneratedColumn> get $columns =>
+      [imdbPoster, tvDB, type, id, url, lang, likes];
   @override
   $TVimgRecordsTable get asDslTable => this;
   @override
@@ -253,6 +288,10 @@ class $TVimgRecordsTable extends TVimgRecords
   VerificationContext validateIntegrity(TVimgRecordsCompanion d,
       {bool isInserting = false}) {
     final context = VerificationContext();
+    if (d.imdbPoster.present) {
+      context.handle(_imdbPosterMeta,
+          imdbPoster.isAcceptableValue(d.imdbPoster.value, _imdbPosterMeta));
+    }
     if (d.tvDB.present) {
       context.handle(
           _tvDBMeta, tvDB.isAcceptableValue(d.tvDB.value, _tvDBMeta));
@@ -295,6 +334,9 @@ class $TVimgRecordsTable extends TVimgRecords
   @override
   Map<String, Variable> entityToSql(TVimgRecordsCompanion d) {
     final map = <String, Variable>{};
+    if (d.imdbPoster.present) {
+      map['imdb_poster'] = Variable<String, StringType>(d.imdbPoster.value);
+    }
     if (d.tvDB.present) {
       map['tv_d_b'] = Variable<String, StringType>(d.tvDB.value);
     }

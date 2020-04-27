@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tracktv/data/bloc/client/client_bloc.dart';
+import 'package:tracktv/data/bloc/refresh/refresh_bloc.dart';
 import 'package:tracktv/data/bloc/shows/shows_bloc.dart';
 import 'package:uni_links/uni_links.dart';
 
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<ClientBloc>(create: (_) => ClientBloc()),
-        BlocProvider<ShowsBloc>(create: (_) => ShowsBloc())
+        BlocProvider<ShowsBloc>(create: (_) => ShowsBloc()),
+        BlocProvider<RefreshBloc>(create: (_) => RefreshBloc())
       ],
       child: MaterialApp(
         title: 'MyUsher',
@@ -80,23 +82,11 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (context, state) {
         if (state is ClientReady) {
           return Scaffold(
-            bottomNavigationBar: BottomNavigationBar(
-              currentIndex: currentIndex,
-              onTap: (val) {
-                setState(() {
-                  currentIndex = val;
-                });
-              },
-              items: [
-                BottomNavigationBarItem(
-                    icon: FaIcon(FontAwesomeIcons.film),
-                    title: Text("Discover")),
-                BottomNavigationBarItem(
-                    icon: FaIcon(FontAwesomeIcons.userAlt),
-                    title: Text("Account")),
-              ],
-            ),
-            body: tabs[currentIndex],
+            
+            body: IndexedStack(
+              index: currentIndex,
+              children: tabs
+            )
           );
         } else {
           return Scaffold(

@@ -12,5 +12,5 @@ class NotRefreshed extends ShowsState{}
 class ShowListLoaded extends ShowsState{
   ShowListLoaded({this.shows});
 
-  List<Show> shows;
+  List<ShowLive> shows;
 }

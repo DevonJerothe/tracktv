@@ -8,6 +8,36 @@ Show showFromJson(String str) => Show.fromJson(json.decode(str));
 
 String showToJson(Show data) => json.encode(data.toJson());
 
+class ShowLive {
+    int watchers;
+    int listCount;
+    Show show;
+
+    ShowLive({
+        this.watchers,
+        this.listCount,
+        this.show,
+    });
+
+    factory ShowLive.fromJson(Map<String, dynamic> json) => ShowLive(
+        watchers: json["watchers"] == null ? null : json["watchers"],
+        listCount: json["list_count"] == null ? null : json["list_count"],
+        show: json["show"] == null ? null : Show.fromJson(json["show"]),
+    );
+
+    factory ShowLive.fromJsonPop(Map<String, dynamic> json) => ShowLive(
+        watchers: null,
+        listCount: null,
+        show: json == null ? null : Show.fromJson(json),
+    );
+
+    Map<String, dynamic> toJson() => {
+        "watchers": watchers == null ? null : watchers,
+        "list_count": listCount == null ? null : listCount,
+        "show": show == null ? null : show.toJson(),
+    };
+}
+
 class Show {
     String title;
     int year;

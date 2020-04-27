@@ -1,6 +1,7 @@
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:moor/moor.dart';
 import 'package:oauth2/oauth2.dart';
+import 'package:tracktv/data/api/classes/show.dart';
 import 'package:tracktv/data/api/classes/tv_imgs.dart';
 import 'package:tracktv/data/api/trakt_api.dart';
 import 'package:tracktv/data/db/database.dart';
@@ -9,7 +10,12 @@ import 'package:tracktv/data/utils/utility_functions.dart';
 
 part 'tv_shows.g.dart';
 
-@UseDao(tables: [TVimgRecords], queries: {})
+
+@UseDao(tables: [TVimgRecords], 
+queries: {
+  'imgsByType':
+    'SELECT * FROM TVimg WHERE tv_d_b = :tvDB AND type = :typeString',
+})
 class TVShowsDao extends DatabaseAccessor<DatabaseService>
     with _$TVShowsDaoMixin {
   TVShowsDao(DatabaseService db) : super(db);
@@ -43,34 +49,5 @@ class TVShowsDao extends DatabaseAccessor<DatabaseService>
   }
 
   //edit to return a list of desired # of types
-  Future<String> getImg({ImgType type, String tvdbID, Client client}) async {
-    //implement count
-
-    final dbCheck = await (select(tVimgRecords)
-          ..where((l) => l.tvDB.equals(tvdbID))
-          ..where((l) => l.type.equals(EnumToString.parse(type))))
-        .get();
-
-    if (dbCheck.isEmpty || dbCheck == null) {
-      var imgs = await TraktAPI()
-          .getShowImg(type: type, client: client, tvdbID: tvdbID);
-      await insertTVImgs(imgs);
-    }
-
-    //await Future.delayed(Duration(seconds: 6));
-
-    final imgsList = await (select(tVimgRecords)
-          ..where((l) => l.tvDB.equals(tvdbID))
-          ..where((l) => l.type.equals(EnumToString.parse(type)))
-          ..orderBy(
-            [
-              (u) => OrderingTerm(expression: u.likes, mode: OrderingMode.desc),
-            ],
-          ))
-        .get();
-
-    
-
-    return imgsList.first.url;
-  }
+  
 }

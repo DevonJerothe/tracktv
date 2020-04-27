@@ -6,7 +6,7 @@ import 'package:oauth2/oauth2.dart';
 import 'package:tracktv/data/api/classes/show.dart';
 import 'package:tracktv/data/api/trakt_api.dart';
 import 'package:tracktv/data/bloc/client/client_bloc.dart';
-import 'package:tracktv/data/bloc/shows/shows_bloc.dart';
+import 'package:tracktv/data/bloc/refresh/refresh_bloc.dart';
 import 'package:tracktv/data/db/database.dart';
 import 'package:tracktv/data/utils/utility_functions.dart';
 import 'package:tracktv/ui/common/spotlight.dart';
@@ -18,6 +18,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int currentIndex = 0;
+  Client client;
 
   final trakt = new TraktAPI();
 
@@ -25,15 +26,12 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    BlocProvider.of<ShowsBloc>(context).add(GetShowList(
-        type: ListCategory.trending,
-        limit: 5,
-        extended: true,
-        context: context));
+    client = ClientBloc.usrClient(context);
+    BlocProvider.of<RefreshBloc>(context).add(Refresh(client: client));
   }
 
   void init(Client client) async {
-    await trakt.syncLastActivity(client: client);
+    var response = await client.get('https://img.omdbapi.com/?apikey=c3a93533&i=tt0903747');
   }
 
   @override
@@ -41,10 +39,12 @@ class _HomeState extends State<Home> {
     int index = 0;
     final Size screenSize = MediaQuery.of(context).size;
     final client = ClientBloc.usrClient(context);
-    return BlocBuilder<ShowsBloc, ShowsState>(
+    return BlocBuilder<RefreshBloc, RefreshState>(
       builder: (context, state) {
-        if (state is ShowListLoaded) {
-          final shows = state.shows;
+        if (state is Refreshed) {
+          final trendingTv = state.tTrend;
+          final popularTv = state.tPop;
+          final anticipatedTV = state.tAnt;
           return CustomScrollView(
             slivers: <Widget>[
               SliverAppBar(
@@ -80,10 +80,10 @@ class _HomeState extends State<Home> {
                   collapseMode: CollapseMode.pin,
                   background: Container(              
                     child: CarouselSlider.builder(
-                        itemCount: shows.length,
+                        itemCount: 5,
                         itemBuilder: (context, index) {
                           return SpotLight(
-                            show: shows[index],
+                            show: trendingTv[index],
                             client: client,
                             screenSize: screenSize,
                           );
@@ -99,9 +99,18 @@ class _HomeState extends State<Home> {
                        
                   ),
                 ),
+              ),
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    
+                  ]
+                ),
               )
             ],
           );
+        }else{
+          return Center(child: CircularProgressIndicator());
         }
       },
     );

@@ -20,13 +20,7 @@ class ShowsBloc extends Bloc<ShowsEvent, ShowsState> {
     ShowsEvent event,
   ) async* {
     if (event is GetShowList){
-      final client = ClientBloc.usrClient(event.context);
-      var shows = await TraktAPI().getShows(
-        type: event.type,
-        client: client,
-        extended: true
-      );
-      yield ShowListLoaded(shows: shows);
+      
     } 
   }
 }

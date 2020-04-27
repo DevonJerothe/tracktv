@@ -8,6 +8,8 @@ class TVimgRecords extends Table {
   @override 
   Set<Column> get primaryKey => {id};
 
+  TextColumn get imdbPoster => text().nullable()();
+
   TextColumn get tvDB => text()();
 
   TextColumn get type => text()();

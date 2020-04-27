@@ -11,6 +11,11 @@ enum MediaType {
   episode
 }
 
+enum Source {
+  fanArt,
+  imdb
+}
+
 enum ImgType {
   hdtvlogo,
   tvposter,
